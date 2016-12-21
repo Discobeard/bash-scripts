@@ -17,6 +17,9 @@ branchname() {
 	if [ "$(ischanges)" ]
 	then
 		echo "$(green)[$(git rev-parse --abbrev-ref HEAD)]$(endc)"
+  elif [ "$(hasntbeenpushed)" ]
+	then
+		echo "$(orange)[$(git rev-parse --abbrev-ref HEAD)]$(endc)"
 	else
 		echo "$(red)[$(git rev-parse --abbrev-ref HEAD)]$(endc)"
 	fi
@@ -24,6 +27,10 @@ branchname() {
 
 ischanges() {
 	echo "$(git status | grep 'working directory clean')"
+}
+
+hasntbeenpushed() {
+	echo "$(git status | grep 'Your branch is ahead of')"
 }
 
 blue() {
@@ -36,6 +43,10 @@ red() {
 
 green() {
 	echo "\[\033[1;32m\]"
+}
+
+orange() {
+	echo "\[\033[1;33m\]"
 }
 
 endc() {
