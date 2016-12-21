@@ -14,12 +14,12 @@ prompt() {
 }
 
 branchname() {
-	if [ "$(ischanges)" ]
-	then
-		echo "$(green)[$(git rev-parse --abbrev-ref HEAD)]$(endc)"
-  elif [ "$(hasntbeenpushed)" ]
+	if [ "$(hasntbeenpushed)" ]
 	then
 		echo "$(orange)[$(git rev-parse --abbrev-ref HEAD)]$(endc)"
+  elif [ "$(ischanges)" ]
+	then
+		echo "$(green)[$(git rev-parse --abbrev-ref HEAD)]$(endc)"
 	else
 		echo "$(red)[$(git rev-parse --abbrev-ref HEAD)]$(endc)"
 	fi
