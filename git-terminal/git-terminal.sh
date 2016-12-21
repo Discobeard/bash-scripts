@@ -3,9 +3,9 @@
 fullprompt() {
 	if git rev-parse 2>/dev/null
 	then
-		echo "$(prompt) $(branchname) #"
+		echo "$(prompt) $(branchname) \$"
 	else
-		echo "$(prompt) #"
+		echo "$(prompt) \$"
 	fi
 }
 
@@ -42,4 +42,4 @@ endc() {
 	echo "\[\033[0m\]"
 }
 
-echo $(fullprompt)
+echo "$(fullprompt) "
