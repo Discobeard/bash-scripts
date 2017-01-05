@@ -4,7 +4,7 @@ some helpful bash scripts
 # git-terminal
 adds some colour and info to the command line when in a git enabled folder
 
-# killalljps
+# kjps
 kill java process by name
 
 # install and remove
