@@ -4,7 +4,7 @@ for i in $(ls -a)
 do
 
 	if [ -d $i ]
-	then	
+	then
 		if [ -d "./$i/.git" ]
 		then
 			cd $i
@@ -14,4 +14,3 @@ do
 	fi
 
 done
-
