@@ -46,7 +46,7 @@ green() {
 }
 
 orange() {
-	echo "\e[[33m"
+	echo "\e[33m"
 }
 
 endc() {
