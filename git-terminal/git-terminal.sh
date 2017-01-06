@@ -34,23 +34,23 @@ hasntbeenpushed() {
 }
 
 blue() {
-	echo "\[\033[1;34m\]"
+	echo "\e[34m"
 }
 
 red() {
-	echo "\[\033[1;31m\]"
+	echo "\e[31m"
 }
 
 green() {
-	echo "\[\033[1;32m\]"
+	echo "\e[32m"
 }
 
 orange() {
-	echo "\[\033[1;33m\]"
+	echo "\e[[33m"
 }
 
 endc() {
-	echo "\[\033[0m\]"
+	echo "\e[0m"
 }
 
 echo "$(fullprompt) "
