@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$SCRIPTLOC/colors.sh"
+source "$script_location/colors.sh"
 
 branchname() {
 	echo $(git rev-parse --abbrev-ref HEAD)
@@ -14,6 +14,18 @@ printablebranchname(){
 		echo "$(green)[$(branchname)]$(endc)"
 	else
 		echo "$(red)[$(branchname)]$(endc)"
+	fi
+}
+
+printablebranchnameforprompt(){
+	if [ "$(hasntbeenpushed)" ]
+	then
+		echo "$(prompt_orange)[$(branchname)]$(prompt_endc)"
+	elif [ "$(ischanges)" ]
+	then
+		echo "$(prompt_green)[$(branchname)]$(prompt_endc)"
+	else
+		echo "$(prompt_red)[$(branchname)]$(prompt_endc)"
 	fi
 }
 

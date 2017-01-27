@@ -1,4 +1,4 @@
-source "$SCRIPTLOC/git.sh"
+source "$script_location/git.sh"
 
 for i in $(ls -a)
 do

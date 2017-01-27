@@ -3,13 +3,13 @@
 
 touch ~/.bash_profile
 touch ~/.bash_rc
-touch ~/.bash_scripts
 
-setScriptAliases() {
-	echo "setting script aliases"
-	echo "alias kjps='$(pwd)/killalljps.sh'" >> ~/.bash_scripts
-	echo "alias rmscript='$(pwd)/script_remove.sh'" >> ~/.bash_scripts
-}
+# setScriptAliases() {
+# 	echo "setting script aliases"
+# 	echo "alias kjps='$(pwd)/killalljps.sh'" >> ~/.bash_scripts
+# 	echo "alias gls='$(pwd)/gls.sh'" >> ~/.bash_scripts
+# 	echo "alias rmscript='$(pwd)/script_remove.sh'" >> ~/.bash_scripts
+# }
 
 setGitAliases() {
 	echo "setting git aliases"
@@ -17,15 +17,14 @@ setGitAliases() {
 	 git config --global alias.co checkout
 }
 
-if ! grep "~/.bash_scripts" ~/.bash_profile
+if ! grep "bash_scripts.sh" ~/.bash_profile
 then
-	echo "source ~/.bash_scripts" >> ~/.bash_profile
-	echo "source ~/.bash_scripts" >> ~/.bashrc
+	echo "export script_location=$(pwd)" >> ~/.bash_profile
+	echo "source $(pwd)/bash_scripts.sh" >> ~/.bash_profile
 
-	echo "export SCRIPTLOC=$(pwd)" >> ~/.bash_scripts
-	echo ". $(pwd)/git-terminal/init.sh" >> ~/.bash_scripts
+	echo "export script_location=$(pwd)" >> ~/.bashrc
+	echo "source $(pwd)/bash_scripts.sh" >> ~/.bashrc
 
-	setScriptAliases
 	setGitAliases
 
 else
